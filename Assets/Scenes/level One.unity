@@ -5108,6 +5108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ParallaxControlle
   targetCamera: {fileID: 519420031}
+  spriteMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   layers:
   - image: {fileID: -519094385899422448, guid: 9d685b1bae4f3f242a87b051409c7040, type: 3}
     scrollScale: 0
@@ -7052,13 +7053,14 @@ MonoBehaviour:
     click to use the grappling hook
 
 
-
     Story: Your wife was taken by a mysterious
-    hook, you need to track down her kidnapper
+    hook; you need to track down her kidnapper
 
 
-    Disclosure: This game is hard,
-    but it is possible, some parts may take mulitple tries'
+    Warning: This game is hard,
+    but it is possible; some parts may take multiple tries
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

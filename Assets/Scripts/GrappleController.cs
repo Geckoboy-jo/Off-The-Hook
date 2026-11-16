@@ -151,6 +151,7 @@ public class GrappleController : MonoBehaviour
             }
             attachedCollider = hit.collider;
             attachedHookPoint = hookPoint;
+            if (hookPoint != null) hookPoint.RegisterHook(currentGrapple);
             localAttachPoint = attachedCollider.transform.InverseTransformPoint(hit.point);
             IsGrappled = true;
             currentRope.ReelIn = true;

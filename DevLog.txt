@@ -1,0 +1,11 @@
+V0.1.1
+
+------------------Bug Fixes-----------------------
+-Fixed an embarrassing number of typos
+-Fixed an issue where the game wouldn't quit when pressing escape
+-Fixed exit button on main menu
+-Fixed a bug where the grapplers would float in the are after being used to grapple onto an orb
+-Fixed a lighting bug where in the build the lights would appear dampened in the build
+------------------internal note-------------------
+-converted into a github repository
+-set up a couple github actions for CI CD automation

@@ -18,6 +18,8 @@ public class ParallaxControlle : MonoBehaviour
     }
 
     public Camera targetCamera;
+    [Tooltip("Lit sprite material so 2D lights affect the background in builds. Falls back to the pipeline default.")]
+    public Material spriteMaterial;
     public Layer[] layers = Array.Empty<Layer>();
 
     private class RepeatingLayer
@@ -112,6 +114,10 @@ public class ParallaxControlle : MonoBehaviour
                 SpriteRenderer renderer = tile.AddComponent<SpriteRenderer>();
                 Layer piece = layer.pieces[layer.tiles.Count % layer.pieces.Count];
                 renderer.sprite = piece.image;
+                Material lit = spriteMaterial;
+                if (lit == null && UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline != null)
+                    lit = UnityEngine.Rendering.GraphicsSettings.currentRenderPipeline.default2DMaterial;
+                if (lit != null) renderer.sharedMaterial = lit;
                 renderer.sortingLayerName = "Background";
                 renderer.sortingOrder = layer.settings.sortingOrder;
                 tile.transform.localScale = Vector3.one * piece.imageScale;
