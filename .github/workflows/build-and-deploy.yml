@@ -50,12 +50,19 @@ jobs:
         with:
           lfs: true
 
+      # The Unity image is huge; "Failed to write the asset file" errors usually mean the runner ran out of disk.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo docker image prune --all --force
+          df -h /
+
       - uses: actions/cache@v4
         with:
           path: Library
-          key: Library-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          key: Library-v2-${{ matrix.targetPlatform }}-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
-            Library-${{ matrix.targetPlatform }}-
+            Library-v2-${{ matrix.targetPlatform }}-
 
       - uses: game-ci/unity-builder@v4
         with:
